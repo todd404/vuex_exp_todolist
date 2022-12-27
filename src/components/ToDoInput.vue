@@ -15,6 +15,9 @@ export default {
     },
     methods:{
         clickEvent(){
+            if(this.todo_data == ""){
+                return;
+            }
             this.$emit("add-click", this.todo_data);
             this.todo_data = "";
         }

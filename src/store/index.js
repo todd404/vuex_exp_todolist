@@ -34,8 +34,11 @@ export default new Vuex.Store({
     
     changeTodo(state, payload){
       let index = state.todoList.findIndex((value)=>value.id == payload.id);
-      if(index == -1)
+      if(index == -1){
         return;
+      }
+
+      //通过splice将需要更新的todo直接删除并且将更新后的直接插入到原位置
       state.todoList.splice(index, 1, {...state.todoList[index], delete: payload.delete})
     },
 
